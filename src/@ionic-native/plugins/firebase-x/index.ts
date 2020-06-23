@@ -896,6 +896,7 @@ export class FirebaseX extends IonicNativePlugin {
   /**
    * Fetches all the documents in the specific collection.
    * @param {string} collection - name of top-level collection to fetch.
+   * @param filters - filters to apply during the fetch of the documents
    * @param {function} success - callback function to call on successfully deleting the document. Will be passed an {object} containing all the documents in the collection,
    * indexed by document ID. If a Firebase collection with that name does not exist or it contains no documents, the object will be empty.
    * @param {function} error - callback function which will be passed a {string} error message as an argument.
@@ -903,6 +904,7 @@ export class FirebaseX extends IonicNativePlugin {
   @Cordova()
   fetchFirestoreCollection(
     collection: string,
+    filters: boolean | Array<Array<any>>,
     success: (docs: any) => void,
     error: (err: string) => void
   ): Promise<any> {
